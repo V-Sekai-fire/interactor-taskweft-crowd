@@ -1,47 +1,38 @@
+@tool
 extends Node3D
 
-const ELF := "res://plans/mujoco.elf"
 const MODEL := "res://plans/crowd.xml"
-const SUBSTEPS := 4
 
-var _sb: Object
+var _mj: MujocoWorld
 var _holder: Node3D
 var _meshes: Array = []
 
 func _ready() -> void:
 	_build_scene()
-	_sb = ClassDB.instantiate("Sandbox")
-	if _sb == null:
-		push_error("Sandbox class missing; enable the godot_sandbox addon")
-		return
-	_sb.set("program", load(ELF))
-	_sb.set_memory_max(1024)
-	_sb.set_allocations_max(1 << 21)
-	_sb.set_unboxed_arguments(true)
-	if not _sb.vmcall("mjc_load_xml", FileAccess.get_file_as_bytes(MODEL)):
-		push_error("crowd model failed to load")
-		return
+	_mj = MujocoWorld.new()
+	_mj.model_path = MODEL
+	_mj.substeps = 4
+	add_child(_mj)
 	_holder = Node3D.new()
-	# MuJoCo is Z-up, Godot is Y-up: a quarter turn about X converts every geom.
+	# MuJoCo is Z-up, Godot is Y-up.
 	_holder.rotation = Vector3(-PI / 2.0, 0, 0)
 	add_child(_holder)
 
 func _process(_dt: float) -> void:
-	if _sb == null or _sb.vmcall("mjc_nq") == 0:
+	if _mj == null or not _mj.alive():
 		return
 	# Steering stand-in for a taskweft agent: every pedestrian drives toward +x.
-	var nu: int = _sb.vmcall("mjc_nu")
+	var nu := _mj.nu()
 	var ctrl := PackedFloat64Array()
 	ctrl.resize(nu)
 	for i in range(0, nu, 2):
 		ctrl[i] = 1.0
-	_sb.vmcall("mjc_set_ctrl", ctrl)
-	for _s in range(SUBSTEPS):
-		_sb.vmcall("mjc_step")
+	_mj.set_ctrl(ctrl)
+	_mj.step()
 	_draw_geoms()
 
 func _draw_geoms() -> void:
-	var g: PackedFloat64Array = _sb.vmcall("mjc_geoms")
+	var g := _mj.geoms()
 	var n := int(g.size() / 11.0)
 	while _meshes.size() < n:
 		var mi := MeshInstance3D.new()

@@ -1,0 +1,917 @@
+<mujoco model="transit_crowd">
+  <compiler angle="radian" />
+  <option timestep="0.004" gravity="0 0 -9.81" integrator="implicitfast" iterations="30" ls_iterations="20" cone="pyramidal" tolerance="1e-10" />
+  <default>
+    <geom type="capsule" condim="1" solref="0.01 1" solimp="0.9 0.95 0.001" friction="0.5 0.005 0.0001" />
+  </default>
+  <worldbody>
+    <geom name="floor" type="plane" size="24.00 12.00 0.1" rgba="0.2 0.2 0.22 1" />
+    <geom name="wallN" type="box" pos="0 6.000 1.5" size="12.00 0.1 1.5" rgba="0.35 0.36 0.4 1" />
+    <geom name="wallS" type="box" pos="0 -6.000 1.5" size="12.00 0.1 1.5" rgba="0.35 0.36 0.4 1" />
+    <geom name="pillar0" type="box" pos="-6.000 0 1.5" size="0.4 0.4 1.5" rgba="0.5 0.5 0.55 1" />
+    <geom name="pillar1" type="box" pos="-2.000 0 1.5" size="0.4 0.4 1.5" rgba="0.5 0.5 0.55 1" />
+    <geom name="pillar2" type="box" pos="2.000 0 1.5" size="0.4 0.4 1.5" rgba="0.5 0.5 0.55 1" />
+    <geom name="pillar3" type="box" pos="6.000 0 1.5" size="0.4 0.4 1.5" rgba="0.5 0.5 0.55 1" />
+    <body name="ped0" pos="-11.0000 -5.7000 0.8500">
+      <joint name="x0" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y0" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped0" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped1" pos="-11.0000 -5.1000 0.8500">
+      <joint name="x1" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y1" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped1" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped2" pos="-11.0000 -4.5000 0.8500">
+      <joint name="x2" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y2" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped2" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped3" pos="-11.0000 -3.9000 0.8500">
+      <joint name="x3" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y3" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped3" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped4" pos="-11.0000 -3.3000 0.8500">
+      <joint name="x4" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y4" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped4" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped5" pos="-11.0000 -2.7000 0.8500">
+      <joint name="x5" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y5" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped5" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped6" pos="-11.0000 -2.1000 0.8500">
+      <joint name="x6" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y6" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped6" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped7" pos="-11.0000 -1.5000 0.8500">
+      <joint name="x7" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y7" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped7" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped8" pos="-11.0000 -0.9000 0.8500">
+      <joint name="x8" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y8" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped8" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped9" pos="-11.0000 -0.3000 0.8500">
+      <joint name="x9" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y9" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped9" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped10" pos="-11.0000 0.3000 0.8500">
+      <joint name="x10" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y10" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped10" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped11" pos="-11.0000 0.9000 0.8500">
+      <joint name="x11" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y11" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped11" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped12" pos="-11.0000 1.5000 0.8500">
+      <joint name="x12" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y12" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped12" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped13" pos="-11.0000 2.1000 0.8500">
+      <joint name="x13" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y13" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped13" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped14" pos="-11.0000 2.7000 0.8500">
+      <joint name="x14" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y14" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped14" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped15" pos="-11.0000 3.3000 0.8500">
+      <joint name="x15" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y15" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped15" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped16" pos="-11.0000 3.9000 0.8500">
+      <joint name="x16" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y16" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped16" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped17" pos="-11.0000 4.5000 0.8500">
+      <joint name="x17" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y17" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped17" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped18" pos="-11.0000 5.1000 0.8500">
+      <joint name="x18" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y18" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped18" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped19" pos="-11.0000 5.7000 0.8500">
+      <joint name="x19" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y19" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped19" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped20" pos="-10.4000 -5.7000 0.8500">
+      <joint name="x20" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y20" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped20" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped21" pos="-10.4000 -5.1000 0.8500">
+      <joint name="x21" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y21" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped21" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped22" pos="-10.4000 -4.5000 0.8500">
+      <joint name="x22" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y22" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped22" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped23" pos="-10.4000 -3.9000 0.8500">
+      <joint name="x23" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y23" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped23" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped24" pos="-10.4000 -3.3000 0.8500">
+      <joint name="x24" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y24" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped24" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped25" pos="-10.4000 -2.7000 0.8500">
+      <joint name="x25" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y25" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped25" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped26" pos="-10.4000 -2.1000 0.8500">
+      <joint name="x26" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y26" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped26" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped27" pos="-10.4000 -1.5000 0.8500">
+      <joint name="x27" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y27" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped27" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped28" pos="-10.4000 -0.9000 0.8500">
+      <joint name="x28" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y28" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped28" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped29" pos="-10.4000 -0.3000 0.8500">
+      <joint name="x29" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y29" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped29" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped30" pos="-10.4000 0.3000 0.8500">
+      <joint name="x30" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y30" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped30" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped31" pos="-10.4000 0.9000 0.8500">
+      <joint name="x31" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y31" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped31" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped32" pos="-10.4000 1.5000 0.8500">
+      <joint name="x32" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y32" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped32" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped33" pos="-10.4000 2.1000 0.8500">
+      <joint name="x33" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y33" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped33" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped34" pos="-10.4000 2.7000 0.8500">
+      <joint name="x34" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y34" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped34" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped35" pos="-10.4000 3.3000 0.8500">
+      <joint name="x35" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y35" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped35" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped36" pos="-10.4000 3.9000 0.8500">
+      <joint name="x36" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y36" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped36" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped37" pos="-10.4000 4.5000 0.8500">
+      <joint name="x37" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y37" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped37" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped38" pos="-10.4000 5.1000 0.8500">
+      <joint name="x38" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y38" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped38" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped39" pos="-10.4000 5.7000 0.8500">
+      <joint name="x39" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y39" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped39" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped40" pos="-9.8000 -5.7000 0.8500">
+      <joint name="x40" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y40" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped40" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped41" pos="-9.8000 -5.1000 0.8500">
+      <joint name="x41" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y41" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped41" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped42" pos="-9.8000 -4.5000 0.8500">
+      <joint name="x42" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y42" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped42" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped43" pos="-9.8000 -3.9000 0.8500">
+      <joint name="x43" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y43" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped43" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped44" pos="-9.8000 -3.3000 0.8500">
+      <joint name="x44" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y44" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped44" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped45" pos="-9.8000 -2.7000 0.8500">
+      <joint name="x45" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y45" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped45" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped46" pos="-9.8000 -2.1000 0.8500">
+      <joint name="x46" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y46" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped46" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped47" pos="-9.8000 -1.5000 0.8500">
+      <joint name="x47" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y47" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped47" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped48" pos="-9.8000 -0.9000 0.8500">
+      <joint name="x48" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y48" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped48" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped49" pos="-9.8000 -0.3000 0.8500">
+      <joint name="x49" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y49" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped49" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped50" pos="-9.8000 0.3000 0.8500">
+      <joint name="x50" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y50" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped50" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped51" pos="-9.8000 0.9000 0.8500">
+      <joint name="x51" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y51" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped51" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped52" pos="-9.8000 1.5000 0.8500">
+      <joint name="x52" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y52" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped52" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped53" pos="-9.8000 2.1000 0.8500">
+      <joint name="x53" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y53" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped53" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped54" pos="-9.8000 2.7000 0.8500">
+      <joint name="x54" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y54" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped54" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped55" pos="-9.8000 3.3000 0.8500">
+      <joint name="x55" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y55" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped55" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped56" pos="-9.8000 3.9000 0.8500">
+      <joint name="x56" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y56" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped56" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped57" pos="-9.8000 4.5000 0.8500">
+      <joint name="x57" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y57" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped57" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped58" pos="-9.8000 5.1000 0.8500">
+      <joint name="x58" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y58" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped58" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped59" pos="-9.8000 5.7000 0.8500">
+      <joint name="x59" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y59" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped59" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped60" pos="-9.2000 -5.7000 0.8500">
+      <joint name="x60" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y60" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped60" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped61" pos="-9.2000 -5.1000 0.8500">
+      <joint name="x61" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y61" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped61" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped62" pos="-9.2000 -4.5000 0.8500">
+      <joint name="x62" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y62" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped62" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped63" pos="-9.2000 -3.9000 0.8500">
+      <joint name="x63" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y63" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped63" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped64" pos="-9.2000 -3.3000 0.8500">
+      <joint name="x64" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y64" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped64" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped65" pos="-9.2000 -2.7000 0.8500">
+      <joint name="x65" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y65" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped65" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped66" pos="-9.2000 -2.1000 0.8500">
+      <joint name="x66" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y66" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped66" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped67" pos="-9.2000 -1.5000 0.8500">
+      <joint name="x67" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y67" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped67" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped68" pos="-9.2000 -0.9000 0.8500">
+      <joint name="x68" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y68" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped68" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped69" pos="-9.2000 -0.3000 0.8500">
+      <joint name="x69" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y69" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped69" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped70" pos="-9.2000 0.3000 0.8500">
+      <joint name="x70" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y70" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped70" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped71" pos="-9.2000 0.9000 0.8500">
+      <joint name="x71" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y71" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped71" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped72" pos="-9.2000 1.5000 0.8500">
+      <joint name="x72" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y72" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped72" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped73" pos="-9.2000 2.1000 0.8500">
+      <joint name="x73" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y73" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped73" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped74" pos="-9.2000 2.7000 0.8500">
+      <joint name="x74" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y74" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped74" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped75" pos="-9.2000 3.3000 0.8500">
+      <joint name="x75" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y75" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped75" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped76" pos="-9.2000 3.9000 0.8500">
+      <joint name="x76" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y76" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped76" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped77" pos="-9.2000 4.5000 0.8500">
+      <joint name="x77" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y77" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped77" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped78" pos="-9.2000 5.1000 0.8500">
+      <joint name="x78" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y78" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped78" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped79" pos="-9.2000 5.7000 0.8500">
+      <joint name="x79" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y79" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped79" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped80" pos="-8.6000 -5.7000 0.8500">
+      <joint name="x80" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y80" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped80" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped81" pos="-8.6000 -5.1000 0.8500">
+      <joint name="x81" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y81" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped81" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped82" pos="-8.6000 -4.5000 0.8500">
+      <joint name="x82" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y82" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped82" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped83" pos="-8.6000 -3.9000 0.8500">
+      <joint name="x83" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y83" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped83" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped84" pos="-8.6000 -3.3000 0.8500">
+      <joint name="x84" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y84" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped84" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped85" pos="-8.6000 -2.7000 0.8500">
+      <joint name="x85" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y85" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped85" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped86" pos="-8.6000 -2.1000 0.8500">
+      <joint name="x86" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y86" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped86" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped87" pos="-8.6000 -1.5000 0.8500">
+      <joint name="x87" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y87" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped87" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped88" pos="-8.6000 -0.9000 0.8500">
+      <joint name="x88" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y88" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped88" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped89" pos="-8.6000 -0.3000 0.8500">
+      <joint name="x89" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y89" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped89" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped90" pos="-8.6000 0.3000 0.8500">
+      <joint name="x90" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y90" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped90" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped91" pos="-8.6000 0.9000 0.8500">
+      <joint name="x91" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y91" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped91" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped92" pos="-8.6000 1.5000 0.8500">
+      <joint name="x92" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y92" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped92" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped93" pos="-8.6000 2.1000 0.8500">
+      <joint name="x93" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y93" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped93" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped94" pos="-8.6000 2.7000 0.8500">
+      <joint name="x94" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y94" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped94" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped95" pos="-8.6000 3.3000 0.8500">
+      <joint name="x95" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y95" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped95" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped96" pos="-8.6000 3.9000 0.8500">
+      <joint name="x96" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y96" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped96" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped97" pos="-8.6000 4.5000 0.8500">
+      <joint name="x97" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y97" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped97" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped98" pos="-8.6000 5.1000 0.8500">
+      <joint name="x98" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y98" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped98" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped99" pos="-8.6000 5.7000 0.8500">
+      <joint name="x99" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y99" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped99" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped100" pos="-8.0000 -5.7000 0.8500">
+      <joint name="x100" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y100" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped100" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped101" pos="-8.0000 -5.1000 0.8500">
+      <joint name="x101" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y101" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped101" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped102" pos="-8.0000 -4.5000 0.8500">
+      <joint name="x102" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y102" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped102" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped103" pos="-8.0000 -3.9000 0.8500">
+      <joint name="x103" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y103" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped103" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped104" pos="-8.0000 -3.3000 0.8500">
+      <joint name="x104" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y104" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped104" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped105" pos="-8.0000 -2.7000 0.8500">
+      <joint name="x105" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y105" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped105" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped106" pos="-8.0000 -2.1000 0.8500">
+      <joint name="x106" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y106" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped106" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped107" pos="-8.0000 -1.5000 0.8500">
+      <joint name="x107" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y107" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped107" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped108" pos="-8.0000 -0.9000 0.8500">
+      <joint name="x108" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y108" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped108" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped109" pos="-8.0000 -0.3000 0.8500">
+      <joint name="x109" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y109" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped109" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped110" pos="-8.0000 0.3000 0.8500">
+      <joint name="x110" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y110" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped110" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped111" pos="-8.0000 0.9000 0.8500">
+      <joint name="x111" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y111" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped111" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped112" pos="-8.0000 1.5000 0.8500">
+      <joint name="x112" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y112" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped112" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped113" pos="-8.0000 2.1000 0.8500">
+      <joint name="x113" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y113" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped113" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped114" pos="-8.0000 2.7000 0.8500">
+      <joint name="x114" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y114" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped114" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped115" pos="-8.0000 3.3000 0.8500">
+      <joint name="x115" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y115" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped115" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped116" pos="-8.0000 3.9000 0.8500">
+      <joint name="x116" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y116" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped116" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped117" pos="-8.0000 4.5000 0.8500">
+      <joint name="x117" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y117" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped117" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped118" pos="-8.0000 5.1000 0.8500">
+      <joint name="x118" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y118" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped118" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped119" pos="-8.0000 5.7000 0.8500">
+      <joint name="x119" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y119" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped119" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped120" pos="-7.4000 -5.7000 0.8500">
+      <joint name="x120" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y120" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped120" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped121" pos="-7.4000 -5.1000 0.8500">
+      <joint name="x121" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y121" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped121" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped122" pos="-7.4000 -4.5000 0.8500">
+      <joint name="x122" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y122" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped122" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped123" pos="-7.4000 -3.9000 0.8500">
+      <joint name="x123" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y123" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped123" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped124" pos="-7.4000 -3.3000 0.8500">
+      <joint name="x124" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y124" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped124" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped125" pos="-7.4000 -2.7000 0.8500">
+      <joint name="x125" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y125" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped125" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped126" pos="-7.4000 -2.1000 0.8500">
+      <joint name="x126" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y126" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped126" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+    <body name="ped127" pos="-7.4000 -1.5000 0.8500">
+      <joint name="x127" type="slide" axis="1 0 0" damping="8" />
+      <joint name="y127" type="slide" axis="0 1 0" damping="8" />
+      <geom name="ped127" size="0.250" fromto="0 0 -0.600 0 0 0.600" density="120" rgba="0.8 0.7 0.55 1" />
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="fx0" joint="x0" gear="200" ctrlrange="-1 1" />
+    <motor name="fy0" joint="y0" gear="200" ctrlrange="-1 1" />
+    <motor name="fx1" joint="x1" gear="200" ctrlrange="-1 1" />
+    <motor name="fy1" joint="y1" gear="200" ctrlrange="-1 1" />
+    <motor name="fx2" joint="x2" gear="200" ctrlrange="-1 1" />
+    <motor name="fy2" joint="y2" gear="200" ctrlrange="-1 1" />
+    <motor name="fx3" joint="x3" gear="200" ctrlrange="-1 1" />
+    <motor name="fy3" joint="y3" gear="200" ctrlrange="-1 1" />
+    <motor name="fx4" joint="x4" gear="200" ctrlrange="-1 1" />
+    <motor name="fy4" joint="y4" gear="200" ctrlrange="-1 1" />
+    <motor name="fx5" joint="x5" gear="200" ctrlrange="-1 1" />
+    <motor name="fy5" joint="y5" gear="200" ctrlrange="-1 1" />
+    <motor name="fx6" joint="x6" gear="200" ctrlrange="-1 1" />
+    <motor name="fy6" joint="y6" gear="200" ctrlrange="-1 1" />
+    <motor name="fx7" joint="x7" gear="200" ctrlrange="-1 1" />
+    <motor name="fy7" joint="y7" gear="200" ctrlrange="-1 1" />
+    <motor name="fx8" joint="x8" gear="200" ctrlrange="-1 1" />
+    <motor name="fy8" joint="y8" gear="200" ctrlrange="-1 1" />
+    <motor name="fx9" joint="x9" gear="200" ctrlrange="-1 1" />
+    <motor name="fy9" joint="y9" gear="200" ctrlrange="-1 1" />
+    <motor name="fx10" joint="x10" gear="200" ctrlrange="-1 1" />
+    <motor name="fy10" joint="y10" gear="200" ctrlrange="-1 1" />
+    <motor name="fx11" joint="x11" gear="200" ctrlrange="-1 1" />
+    <motor name="fy11" joint="y11" gear="200" ctrlrange="-1 1" />
+    <motor name="fx12" joint="x12" gear="200" ctrlrange="-1 1" />
+    <motor name="fy12" joint="y12" gear="200" ctrlrange="-1 1" />
+    <motor name="fx13" joint="x13" gear="200" ctrlrange="-1 1" />
+    <motor name="fy13" joint="y13" gear="200" ctrlrange="-1 1" />
+    <motor name="fx14" joint="x14" gear="200" ctrlrange="-1 1" />
+    <motor name="fy14" joint="y14" gear="200" ctrlrange="-1 1" />
+    <motor name="fx15" joint="x15" gear="200" ctrlrange="-1 1" />
+    <motor name="fy15" joint="y15" gear="200" ctrlrange="-1 1" />
+    <motor name="fx16" joint="x16" gear="200" ctrlrange="-1 1" />
+    <motor name="fy16" joint="y16" gear="200" ctrlrange="-1 1" />
+    <motor name="fx17" joint="x17" gear="200" ctrlrange="-1 1" />
+    <motor name="fy17" joint="y17" gear="200" ctrlrange="-1 1" />
+    <motor name="fx18" joint="x18" gear="200" ctrlrange="-1 1" />
+    <motor name="fy18" joint="y18" gear="200" ctrlrange="-1 1" />
+    <motor name="fx19" joint="x19" gear="200" ctrlrange="-1 1" />
+    <motor name="fy19" joint="y19" gear="200" ctrlrange="-1 1" />
+    <motor name="fx20" joint="x20" gear="200" ctrlrange="-1 1" />
+    <motor name="fy20" joint="y20" gear="200" ctrlrange="-1 1" />
+    <motor name="fx21" joint="x21" gear="200" ctrlrange="-1 1" />
+    <motor name="fy21" joint="y21" gear="200" ctrlrange="-1 1" />
+    <motor name="fx22" joint="x22" gear="200" ctrlrange="-1 1" />
+    <motor name="fy22" joint="y22" gear="200" ctrlrange="-1 1" />
+    <motor name="fx23" joint="x23" gear="200" ctrlrange="-1 1" />
+    <motor name="fy23" joint="y23" gear="200" ctrlrange="-1 1" />
+    <motor name="fx24" joint="x24" gear="200" ctrlrange="-1 1" />
+    <motor name="fy24" joint="y24" gear="200" ctrlrange="-1 1" />
+    <motor name="fx25" joint="x25" gear="200" ctrlrange="-1 1" />
+    <motor name="fy25" joint="y25" gear="200" ctrlrange="-1 1" />
+    <motor name="fx26" joint="x26" gear="200" ctrlrange="-1 1" />
+    <motor name="fy26" joint="y26" gear="200" ctrlrange="-1 1" />
+    <motor name="fx27" joint="x27" gear="200" ctrlrange="-1 1" />
+    <motor name="fy27" joint="y27" gear="200" ctrlrange="-1 1" />
+    <motor name="fx28" joint="x28" gear="200" ctrlrange="-1 1" />
+    <motor name="fy28" joint="y28" gear="200" ctrlrange="-1 1" />
+    <motor name="fx29" joint="x29" gear="200" ctrlrange="-1 1" />
+    <motor name="fy29" joint="y29" gear="200" ctrlrange="-1 1" />
+    <motor name="fx30" joint="x30" gear="200" ctrlrange="-1 1" />
+    <motor name="fy30" joint="y30" gear="200" ctrlrange="-1 1" />
+    <motor name="fx31" joint="x31" gear="200" ctrlrange="-1 1" />
+    <motor name="fy31" joint="y31" gear="200" ctrlrange="-1 1" />
+    <motor name="fx32" joint="x32" gear="200" ctrlrange="-1 1" />
+    <motor name="fy32" joint="y32" gear="200" ctrlrange="-1 1" />
+    <motor name="fx33" joint="x33" gear="200" ctrlrange="-1 1" />
+    <motor name="fy33" joint="y33" gear="200" ctrlrange="-1 1" />
+    <motor name="fx34" joint="x34" gear="200" ctrlrange="-1 1" />
+    <motor name="fy34" joint="y34" gear="200" ctrlrange="-1 1" />
+    <motor name="fx35" joint="x35" gear="200" ctrlrange="-1 1" />
+    <motor name="fy35" joint="y35" gear="200" ctrlrange="-1 1" />
+    <motor name="fx36" joint="x36" gear="200" ctrlrange="-1 1" />
+    <motor name="fy36" joint="y36" gear="200" ctrlrange="-1 1" />
+    <motor name="fx37" joint="x37" gear="200" ctrlrange="-1 1" />
+    <motor name="fy37" joint="y37" gear="200" ctrlrange="-1 1" />
+    <motor name="fx38" joint="x38" gear="200" ctrlrange="-1 1" />
+    <motor name="fy38" joint="y38" gear="200" ctrlrange="-1 1" />
+    <motor name="fx39" joint="x39" gear="200" ctrlrange="-1 1" />
+    <motor name="fy39" joint="y39" gear="200" ctrlrange="-1 1" />
+    <motor name="fx40" joint="x40" gear="200" ctrlrange="-1 1" />
+    <motor name="fy40" joint="y40" gear="200" ctrlrange="-1 1" />
+    <motor name="fx41" joint="x41" gear="200" ctrlrange="-1 1" />
+    <motor name="fy41" joint="y41" gear="200" ctrlrange="-1 1" />
+    <motor name="fx42" joint="x42" gear="200" ctrlrange="-1 1" />
+    <motor name="fy42" joint="y42" gear="200" ctrlrange="-1 1" />
+    <motor name="fx43" joint="x43" gear="200" ctrlrange="-1 1" />
+    <motor name="fy43" joint="y43" gear="200" ctrlrange="-1 1" />
+    <motor name="fx44" joint="x44" gear="200" ctrlrange="-1 1" />
+    <motor name="fy44" joint="y44" gear="200" ctrlrange="-1 1" />
+    <motor name="fx45" joint="x45" gear="200" ctrlrange="-1 1" />
+    <motor name="fy45" joint="y45" gear="200" ctrlrange="-1 1" />
+    <motor name="fx46" joint="x46" gear="200" ctrlrange="-1 1" />
+    <motor name="fy46" joint="y46" gear="200" ctrlrange="-1 1" />
+    <motor name="fx47" joint="x47" gear="200" ctrlrange="-1 1" />
+    <motor name="fy47" joint="y47" gear="200" ctrlrange="-1 1" />
+    <motor name="fx48" joint="x48" gear="200" ctrlrange="-1 1" />
+    <motor name="fy48" joint="y48" gear="200" ctrlrange="-1 1" />
+    <motor name="fx49" joint="x49" gear="200" ctrlrange="-1 1" />
+    <motor name="fy49" joint="y49" gear="200" ctrlrange="-1 1" />
+    <motor name="fx50" joint="x50" gear="200" ctrlrange="-1 1" />
+    <motor name="fy50" joint="y50" gear="200" ctrlrange="-1 1" />
+    <motor name="fx51" joint="x51" gear="200" ctrlrange="-1 1" />
+    <motor name="fy51" joint="y51" gear="200" ctrlrange="-1 1" />
+    <motor name="fx52" joint="x52" gear="200" ctrlrange="-1 1" />
+    <motor name="fy52" joint="y52" gear="200" ctrlrange="-1 1" />
+    <motor name="fx53" joint="x53" gear="200" ctrlrange="-1 1" />
+    <motor name="fy53" joint="y53" gear="200" ctrlrange="-1 1" />
+    <motor name="fx54" joint="x54" gear="200" ctrlrange="-1 1" />
+    <motor name="fy54" joint="y54" gear="200" ctrlrange="-1 1" />
+    <motor name="fx55" joint="x55" gear="200" ctrlrange="-1 1" />
+    <motor name="fy55" joint="y55" gear="200" ctrlrange="-1 1" />
+    <motor name="fx56" joint="x56" gear="200" ctrlrange="-1 1" />
+    <motor name="fy56" joint="y56" gear="200" ctrlrange="-1 1" />
+    <motor name="fx57" joint="x57" gear="200" ctrlrange="-1 1" />
+    <motor name="fy57" joint="y57" gear="200" ctrlrange="-1 1" />
+    <motor name="fx58" joint="x58" gear="200" ctrlrange="-1 1" />
+    <motor name="fy58" joint="y58" gear="200" ctrlrange="-1 1" />
+    <motor name="fx59" joint="x59" gear="200" ctrlrange="-1 1" />
+    <motor name="fy59" joint="y59" gear="200" ctrlrange="-1 1" />
+    <motor name="fx60" joint="x60" gear="200" ctrlrange="-1 1" />
+    <motor name="fy60" joint="y60" gear="200" ctrlrange="-1 1" />
+    <motor name="fx61" joint="x61" gear="200" ctrlrange="-1 1" />
+    <motor name="fy61" joint="y61" gear="200" ctrlrange="-1 1" />
+    <motor name="fx62" joint="x62" gear="200" ctrlrange="-1 1" />
+    <motor name="fy62" joint="y62" gear="200" ctrlrange="-1 1" />
+    <motor name="fx63" joint="x63" gear="200" ctrlrange="-1 1" />
+    <motor name="fy63" joint="y63" gear="200" ctrlrange="-1 1" />
+    <motor name="fx64" joint="x64" gear="200" ctrlrange="-1 1" />
+    <motor name="fy64" joint="y64" gear="200" ctrlrange="-1 1" />
+    <motor name="fx65" joint="x65" gear="200" ctrlrange="-1 1" />
+    <motor name="fy65" joint="y65" gear="200" ctrlrange="-1 1" />
+    <motor name="fx66" joint="x66" gear="200" ctrlrange="-1 1" />
+    <motor name="fy66" joint="y66" gear="200" ctrlrange="-1 1" />
+    <motor name="fx67" joint="x67" gear="200" ctrlrange="-1 1" />
+    <motor name="fy67" joint="y67" gear="200" ctrlrange="-1 1" />
+    <motor name="fx68" joint="x68" gear="200" ctrlrange="-1 1" />
+    <motor name="fy68" joint="y68" gear="200" ctrlrange="-1 1" />
+    <motor name="fx69" joint="x69" gear="200" ctrlrange="-1 1" />
+    <motor name="fy69" joint="y69" gear="200" ctrlrange="-1 1" />
+    <motor name="fx70" joint="x70" gear="200" ctrlrange="-1 1" />
+    <motor name="fy70" joint="y70" gear="200" ctrlrange="-1 1" />
+    <motor name="fx71" joint="x71" gear="200" ctrlrange="-1 1" />
+    <motor name="fy71" joint="y71" gear="200" ctrlrange="-1 1" />
+    <motor name="fx72" joint="x72" gear="200" ctrlrange="-1 1" />
+    <motor name="fy72" joint="y72" gear="200" ctrlrange="-1 1" />
+    <motor name="fx73" joint="x73" gear="200" ctrlrange="-1 1" />
+    <motor name="fy73" joint="y73" gear="200" ctrlrange="-1 1" />
+    <motor name="fx74" joint="x74" gear="200" ctrlrange="-1 1" />
+    <motor name="fy74" joint="y74" gear="200" ctrlrange="-1 1" />
+    <motor name="fx75" joint="x75" gear="200" ctrlrange="-1 1" />
+    <motor name="fy75" joint="y75" gear="200" ctrlrange="-1 1" />
+    <motor name="fx76" joint="x76" gear="200" ctrlrange="-1 1" />
+    <motor name="fy76" joint="y76" gear="200" ctrlrange="-1 1" />
+    <motor name="fx77" joint="x77" gear="200" ctrlrange="-1 1" />
+    <motor name="fy77" joint="y77" gear="200" ctrlrange="-1 1" />
+    <motor name="fx78" joint="x78" gear="200" ctrlrange="-1 1" />
+    <motor name="fy78" joint="y78" gear="200" ctrlrange="-1 1" />
+    <motor name="fx79" joint="x79" gear="200" ctrlrange="-1 1" />
+    <motor name="fy79" joint="y79" gear="200" ctrlrange="-1 1" />
+    <motor name="fx80" joint="x80" gear="200" ctrlrange="-1 1" />
+    <motor name="fy80" joint="y80" gear="200" ctrlrange="-1 1" />
+    <motor name="fx81" joint="x81" gear="200" ctrlrange="-1 1" />
+    <motor name="fy81" joint="y81" gear="200" ctrlrange="-1 1" />
+    <motor name="fx82" joint="x82" gear="200" ctrlrange="-1 1" />
+    <motor name="fy82" joint="y82" gear="200" ctrlrange="-1 1" />
+    <motor name="fx83" joint="x83" gear="200" ctrlrange="-1 1" />
+    <motor name="fy83" joint="y83" gear="200" ctrlrange="-1 1" />
+    <motor name="fx84" joint="x84" gear="200" ctrlrange="-1 1" />
+    <motor name="fy84" joint="y84" gear="200" ctrlrange="-1 1" />
+    <motor name="fx85" joint="x85" gear="200" ctrlrange="-1 1" />
+    <motor name="fy85" joint="y85" gear="200" ctrlrange="-1 1" />
+    <motor name="fx86" joint="x86" gear="200" ctrlrange="-1 1" />
+    <motor name="fy86" joint="y86" gear="200" ctrlrange="-1 1" />
+    <motor name="fx87" joint="x87" gear="200" ctrlrange="-1 1" />
+    <motor name="fy87" joint="y87" gear="200" ctrlrange="-1 1" />
+    <motor name="fx88" joint="x88" gear="200" ctrlrange="-1 1" />
+    <motor name="fy88" joint="y88" gear="200" ctrlrange="-1 1" />
+    <motor name="fx89" joint="x89" gear="200" ctrlrange="-1 1" />
+    <motor name="fy89" joint="y89" gear="200" ctrlrange="-1 1" />
+    <motor name="fx90" joint="x90" gear="200" ctrlrange="-1 1" />
+    <motor name="fy90" joint="y90" gear="200" ctrlrange="-1 1" />
+    <motor name="fx91" joint="x91" gear="200" ctrlrange="-1 1" />
+    <motor name="fy91" joint="y91" gear="200" ctrlrange="-1 1" />
+    <motor name="fx92" joint="x92" gear="200" ctrlrange="-1 1" />
+    <motor name="fy92" joint="y92" gear="200" ctrlrange="-1 1" />
+    <motor name="fx93" joint="x93" gear="200" ctrlrange="-1 1" />
+    <motor name="fy93" joint="y93" gear="200" ctrlrange="-1 1" />
+    <motor name="fx94" joint="x94" gear="200" ctrlrange="-1 1" />
+    <motor name="fy94" joint="y94" gear="200" ctrlrange="-1 1" />
+    <motor name="fx95" joint="x95" gear="200" ctrlrange="-1 1" />
+    <motor name="fy95" joint="y95" gear="200" ctrlrange="-1 1" />
+    <motor name="fx96" joint="x96" gear="200" ctrlrange="-1 1" />
+    <motor name="fy96" joint="y96" gear="200" ctrlrange="-1 1" />
+    <motor name="fx97" joint="x97" gear="200" ctrlrange="-1 1" />
+    <motor name="fy97" joint="y97" gear="200" ctrlrange="-1 1" />
+    <motor name="fx98" joint="x98" gear="200" ctrlrange="-1 1" />
+    <motor name="fy98" joint="y98" gear="200" ctrlrange="-1 1" />
+    <motor name="fx99" joint="x99" gear="200" ctrlrange="-1 1" />
+    <motor name="fy99" joint="y99" gear="200" ctrlrange="-1 1" />
+    <motor name="fx100" joint="x100" gear="200" ctrlrange="-1 1" />
+    <motor name="fy100" joint="y100" gear="200" ctrlrange="-1 1" />
+    <motor name="fx101" joint="x101" gear="200" ctrlrange="-1 1" />
+    <motor name="fy101" joint="y101" gear="200" ctrlrange="-1 1" />
+    <motor name="fx102" joint="x102" gear="200" ctrlrange="-1 1" />
+    <motor name="fy102" joint="y102" gear="200" ctrlrange="-1 1" />
+    <motor name="fx103" joint="x103" gear="200" ctrlrange="-1 1" />
+    <motor name="fy103" joint="y103" gear="200" ctrlrange="-1 1" />
+    <motor name="fx104" joint="x104" gear="200" ctrlrange="-1 1" />
+    <motor name="fy104" joint="y104" gear="200" ctrlrange="-1 1" />
+    <motor name="fx105" joint="x105" gear="200" ctrlrange="-1 1" />
+    <motor name="fy105" joint="y105" gear="200" ctrlrange="-1 1" />
+    <motor name="fx106" joint="x106" gear="200" ctrlrange="-1 1" />
+    <motor name="fy106" joint="y106" gear="200" ctrlrange="-1 1" />
+    <motor name="fx107" joint="x107" gear="200" ctrlrange="-1 1" />
+    <motor name="fy107" joint="y107" gear="200" ctrlrange="-1 1" />
+    <motor name="fx108" joint="x108" gear="200" ctrlrange="-1 1" />
+    <motor name="fy108" joint="y108" gear="200" ctrlrange="-1 1" />
+    <motor name="fx109" joint="x109" gear="200" ctrlrange="-1 1" />
+    <motor name="fy109" joint="y109" gear="200" ctrlrange="-1 1" />
+    <motor name="fx110" joint="x110" gear="200" ctrlrange="-1 1" />
+    <motor name="fy110" joint="y110" gear="200" ctrlrange="-1 1" />
+    <motor name="fx111" joint="x111" gear="200" ctrlrange="-1 1" />
+    <motor name="fy111" joint="y111" gear="200" ctrlrange="-1 1" />
+    <motor name="fx112" joint="x112" gear="200" ctrlrange="-1 1" />
+    <motor name="fy112" joint="y112" gear="200" ctrlrange="-1 1" />
+    <motor name="fx113" joint="x113" gear="200" ctrlrange="-1 1" />
+    <motor name="fy113" joint="y113" gear="200" ctrlrange="-1 1" />
+    <motor name="fx114" joint="x114" gear="200" ctrlrange="-1 1" />
+    <motor name="fy114" joint="y114" gear="200" ctrlrange="-1 1" />
+    <motor name="fx115" joint="x115" gear="200" ctrlrange="-1 1" />
+    <motor name="fy115" joint="y115" gear="200" ctrlrange="-1 1" />
+    <motor name="fx116" joint="x116" gear="200" ctrlrange="-1 1" />
+    <motor name="fy116" joint="y116" gear="200" ctrlrange="-1 1" />
+    <motor name="fx117" joint="x117" gear="200" ctrlrange="-1 1" />
+    <motor name="fy117" joint="y117" gear="200" ctrlrange="-1 1" />
+    <motor name="fx118" joint="x118" gear="200" ctrlrange="-1 1" />
+    <motor name="fy118" joint="y118" gear="200" ctrlrange="-1 1" />
+    <motor name="fx119" joint="x119" gear="200" ctrlrange="-1 1" />
+    <motor name="fy119" joint="y119" gear="200" ctrlrange="-1 1" />
+    <motor name="fx120" joint="x120" gear="200" ctrlrange="-1 1" />
+    <motor name="fy120" joint="y120" gear="200" ctrlrange="-1 1" />
+    <motor name="fx121" joint="x121" gear="200" ctrlrange="-1 1" />
+    <motor name="fy121" joint="y121" gear="200" ctrlrange="-1 1" />
+    <motor name="fx122" joint="x122" gear="200" ctrlrange="-1 1" />
+    <motor name="fy122" joint="y122" gear="200" ctrlrange="-1 1" />
+    <motor name="fx123" joint="x123" gear="200" ctrlrange="-1 1" />
+    <motor name="fy123" joint="y123" gear="200" ctrlrange="-1 1" />
+    <motor name="fx124" joint="x124" gear="200" ctrlrange="-1 1" />
+    <motor name="fy124" joint="y124" gear="200" ctrlrange="-1 1" />
+    <motor name="fx125" joint="x125" gear="200" ctrlrange="-1 1" />
+    <motor name="fy125" joint="y125" gear="200" ctrlrange="-1 1" />
+    <motor name="fx126" joint="x126" gear="200" ctrlrange="-1 1" />
+    <motor name="fy126" joint="y126" gear="200" ctrlrange="-1 1" />
+    <motor name="fx127" joint="x127" gear="200" ctrlrange="-1 1" />
+    <motor name="fy127" joint="y127" gear="200" ctrlrange="-1 1" />
+  </actuator>
+  <keyframe>
+    <key name="at_entrance" qpos="-11.0000 -5.7000 -11.0000 -5.1000 -11.0000 -4.5000 -11.0000 -3.9000 -11.0000 -3.3000 -11.0000 -2.7000 -11.0000 -2.1000 -11.0000 -1.5000 -11.0000 -0.9000 -11.0000 -0.3000 -11.0000 0.3000 -11.0000 0.9000 -11.0000 1.5000 -11.0000 2.1000 -11.0000 2.7000 -11.0000 3.3000 -11.0000 3.9000 -11.0000 4.5000 -11.0000 5.1000 -11.0000 5.7000 -10.4000 -5.7000 -10.4000 -5.1000 -10.4000 -4.5000 -10.4000 -3.9000 -10.4000 -3.3000 -10.4000 -2.7000 -10.4000 -2.1000 -10.4000 -1.5000 -10.4000 -0.9000 -10.4000 -0.3000 -10.4000 0.3000 -10.4000 0.9000 -10.4000 1.5000 -10.4000 2.1000 -10.4000 2.7000 -10.4000 3.3000 -10.4000 3.9000 -10.4000 4.5000 -10.4000 5.1000 -10.4000 5.7000 -9.8000 -5.7000 -9.8000 -5.1000 -9.8000 -4.5000 -9.8000 -3.9000 -9.8000 -3.3000 -9.8000 -2.7000 -9.8000 -2.1000 -9.8000 -1.5000 -9.8000 -0.9000 -9.8000 -0.3000 -9.8000 0.3000 -9.8000 0.9000 -9.8000 1.5000 -9.8000 2.1000 -9.8000 2.7000 -9.8000 3.3000 -9.8000 3.9000 -9.8000 4.5000 -9.8000 5.1000 -9.8000 5.7000 -9.2000 -5.7000 -9.2000 -5.1000 -9.2000 -4.5000 -9.2000 -3.9000 -9.2000 -3.3000 -9.2000 -2.7000 -9.2000 -2.1000 -9.2000 -1.5000 -9.2000 -0.9000 -9.2000 -0.3000 -9.2000 0.3000 -9.2000 0.9000 -9.2000 1.5000 -9.2000 2.1000 -9.2000 2.7000 -9.2000 3.3000 -9.2000 3.9000 -9.2000 4.5000 -9.2000 5.1000 -9.2000 5.7000 -8.6000 -5.7000 -8.6000 -5.1000 -8.6000 -4.5000 -8.6000 -3.9000 -8.6000 -3.3000 -8.6000 -2.7000 -8.6000 -2.1000 -8.6000 -1.5000 -8.6000 -0.9000 -8.6000 -0.3000 -8.6000 0.3000 -8.6000 0.9000 -8.6000 1.5000 -8.6000 2.1000 -8.6000 2.7000 -8.6000 3.3000 -8.6000 3.9000 -8.6000 4.5000 -8.6000 5.1000 -8.6000 5.7000 -8.0000 -5.7000 -8.0000 -5.1000 -8.0000 -4.5000 -8.0000 -3.9000 -8.0000 -3.3000 -8.0000 -2.7000 -8.0000 -2.1000 -8.0000 -1.5000 -8.0000 -0.9000 -8.0000 -0.3000 -8.0000 0.3000 -8.0000 0.9000 -8.0000 1.5000 -8.0000 2.1000 -8.0000 2.7000 -8.0000 3.3000 -8.0000 3.9000 -8.0000 4.5000 -8.0000 5.1000 -8.0000 5.7000 -7.4000 -5.7000 -7.4000 -5.1000 -7.4000 -4.5000 -7.4000 -3.9000 -7.4000 -3.3000 -7.4000 -2.7000 -7.4000 -2.1000 -7.4000 -1.5000" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />
+  </keyframe>
+</mujoco>

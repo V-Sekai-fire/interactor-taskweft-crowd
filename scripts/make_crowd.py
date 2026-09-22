@@ -1,21 +1,7 @@
 #!/usr/bin/env python3
-"""Generate a transit-station crowd MJCF from an XML AST.
+"""Generate the transit-station crowd MJCF from an XML AST. See the README.
 
-N pedestrians spawn at one end of a pillared concourse and are driven toward the
-exit at the other. Each agent is a vertical capsule on two slide joints -- x and
-y in the floor plane, no vertical or rotational degree of freedom -- so it can be
-pushed and can push back but can never topple. That is the whole reason the crowd
-reproduces bit-for-bit across hosts: the physics is sparse planar steering and
-soft capsule-on-capsule avoidance, not the dense stacking-and-toppling that puts
-a contact solver on its most order-sensitive path.
-
-The steering policy (which exit, when to slow for a neighbour) is not in the
-model -- it is the taskweft HTN agent that drives the actuators from the guest.
-The model is the physical scene and its controls only.
-
-    python scripts/make_crowd.py                 # write the model
-    python scripts/make_crowd.py --agents 512    # scale the crowd
-    python scripts/make_crowd.py --self-test     # controls
+    python scripts/make_crowd.py [--agents N] [--self-test]
 """
 
 import argparse
@@ -26,9 +12,6 @@ import xml.etree.ElementTree as ET
 
 OUT = pathlib.Path(__file__).resolve().parent.parent / "project" / "plans" / "crowd.xml"
 
-# An adult footprint and a concourse sized around it. A 0.25 m capsule radius is
-# a 0.5 m shoulder span, about an adult's shoulders; the hall is 24 m long and
-# 12 m wide, roughly a doubles tennis court laid end to end.
 AGENTS = 128
 AGENT_R = 0.25           # 0.5 m across, about an adult's shoulders
 AGENT_H = 1.70           # a person's height, about an interior door
@@ -40,8 +23,6 @@ PILLARS = 4              # a row of columns the crowd must part around
 TIMESTEP = 0.004
 ITERATIONS = 30
 
-# Anchors for pairing a length with a household object, so a reader can tell
-# whether a distance matters. (mm, label)
 _ANCHORS = [(0.76, "a credit card's thickness"), (1.52, "a penny"),
             (7.0, "a pencil"), (14.5, "an AA battery"), (21.2, "a nickel"),
             (42.7, "a golf ball"), (57.0, "an adult wrist"), (66.0, "a soda can")]
@@ -75,8 +56,6 @@ def build_tree(n=AGENTS):
                   integrator="implicitfast", iterations=str(ITERATIONS),
                   ls_iterations="20", cone="pyramidal", tolerance="1e-10")
     default = ET.SubElement(m, "default")
-    # Soft, well-damped avoidance: agents deflect off each other rather than
-    # bouncing, which keeps the solve stable at crowd density.
     ET.SubElement(default, "geom", type="capsule", condim="1",
                   solref="0.01 1", solimp="0.9 0.95 0.001",
                   friction="0.5 0.005 0.0001")
@@ -113,9 +92,6 @@ def build_tree(n=AGENTS):
         ET.SubElement(act, "motor", name="fy%d" % i, joint="y%d" % i, gear="200",
                       ctrlrange="-1 1")
 
-    # A slide joint's qpos is a displacement from the body's own pos, which
-    # already carries the spawn coordinate. So the entrance pose is all zeros;
-    # encoding the spawn again here would place every agent at twice its position.
     key = ET.SubElement(m, "keyframe")
     qpos = " ".join("0" for _ in range(2 * n))
     qvel = " ".join("0" for _ in range(2 * n))
@@ -166,8 +142,6 @@ def self_test():
     control("agents spawn at the entrance end, not on top of the exit",
             all(x < 0 for x, y in pos), "max spawn x %s" % like(max(x for x, y in pos) + HALL_LEN / 2.0))
 
-    # Negative control: a layout that stacks two agents at one point must fail
-    # the no-overlap check above.
     bad = [(0.0, 0.0), (0.0, 0.0)]
     bad_min = math.dist(bad[0], bad[1])
     control("a stacked spawn would be caught", not (bad_min >= 2 * AGENT_R))

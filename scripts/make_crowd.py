@@ -83,7 +83,7 @@ def build_tree(n=AGENTS):
 
     world = ET.SubElement(m, "worldbody")
     ET.SubElement(world, "geom", name="floor", type="plane",
-                  size="%.2f %.2f 0.1" % (HALL_LEN, HALL_WID), rgba="0.2 0.2 0.22 1")
+                  size="%.2f %.2f 0.1" % (HALL_LEN / 2.0, HALL_WID / 2.0), rgba="0.2 0.2 0.22 1")
     for side, y in (("N", HALL_WID / 2.0), ("S", -HALL_WID / 2.0)):
         ET.SubElement(world, "geom", name="wall%s" % side, type="box",
                       pos="0 %.3f 1.5" % y, size="%.2f 0.1 1.5" % (HALL_LEN / 2.0),
@@ -113,8 +113,11 @@ def build_tree(n=AGENTS):
         ET.SubElement(act, "motor", name="fy%d" % i, joint="y%d" % i, gear="200",
                       ctrlrange="-1 1")
 
+    # A slide joint's qpos is a displacement from the body's own pos, which
+    # already carries the spawn coordinate. So the entrance pose is all zeros;
+    # encoding the spawn again here would place every agent at twice its position.
     key = ET.SubElement(m, "keyframe")
-    qpos = " ".join("%.4f" % v for x, y in pos for v in (x, y))
+    qpos = " ".join("0" for _ in range(2 * n))
     qvel = " ".join("0" for _ in range(2 * n))
     ET.SubElement(key, "key", name="at_entrance", qpos=qpos, qvel=qvel)
     return m

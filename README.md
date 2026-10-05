@@ -1,10 +1,10 @@
 # interactor-taskweft-crowd
 
-A deterministic transit-station crowd: planning agents steer one shared physics world that steps bit-identically on every host.
+A transit-station crowd model in one shared physics world, built to be driven by taskweft planning agents.
 
 ## What it is for
 
-Pedestrians cross a pillared concourse, each a taskweft HTN agent choosing where to go while MuJoCo, running as a RISC-V sandbox guest, moves them. Each pedestrian is a capsule that slides in the floor plane and cannot rotate, which keeps contact resolution identical across CPUs at high density. `interactor-mujoco-cloth-sim` takes the harder case, cloth, with the same guarantee.
+Pedestrians cross a pillared concourse while MuJoCo, running as a RISC-V sandbox guest, moves them. Each pedestrian is a capsule that slides in the floor plane and cannot rotate, which keeps contact resolution simple at high density. Steering is a stand-in that pushes every pedestrian along +x; taskweft HTN agents are the intended driver.
 
 ## Building and running
 
@@ -12,7 +12,7 @@ Pedestrians cross a pillared concourse, each a taskweft HTN agent choosing where
 python scripts/make_crowd.py
 ```
 
-That regenerates the crowd model, and its `--help` lists the options. Open `project` in Godot 4 and run the main scene to watch the crowd.
+That regenerates the crowd model, and its `--help` lists the options. Open `project` in Godot 4 on Windows or Linux x86_64 and run the main scene to watch the crowd; the sandbox and video addons ship no macOS binaries.
 
 ## Licence
 

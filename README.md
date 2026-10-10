@@ -16,4 +16,4 @@ That regenerates the crowd model, and its `--help` lists the options. Open `proj
 
 ## Licence
 
-MIT, as [CITATION.cff](CITATION.cff) declares. The addons in the Godot project keep their own licences.
+MIT. See [LICENSE](LICENSE). The addons in the Godot project keep their own licences.
